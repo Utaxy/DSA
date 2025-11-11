@@ -10,19 +10,16 @@ function findMaxAverage(nums: number[], k: number): void {
 		let exit: number = nums[i - k]
 		let add: number = nums[i]
 
-		maxSum = maxSum - exit + add
-		if (maxSum > sumAtm) {
-			sumAtm = maxSum
-
-		}
+		sumAtm = sumAtm - exit + add
+		maxSum = Math.max(maxSum, sumAtm)
 	}
 
 
-	return console.log(sumAtm / k)
+	return console.log(maxSum / k)
 
 };
 
 
-let nums = [5]
-let k = 1
+let nums = [1, 12, -5, -6, 50, 3]
+let k = 4
 findMaxAverage(nums, k)
